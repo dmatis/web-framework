@@ -1,10 +1,9 @@
-import axios from 'axios';
 import { User } from './models/User';
 
-const user = User.buildUser({ id: 1, name: "wow name", age: 100 });
+const userCollection = User.buildUserCollection();
 
-user.on('change', () => {
-  console.log(user);
+userCollection.on('change', () => {
+  console.log(userCollection);
 })
 
-user.fetch();
+userCollection.fetch();
