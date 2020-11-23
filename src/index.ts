@@ -2,6 +2,7 @@ import { UserList } from './views/UserList';
 import { Collection } from './models/Collection';
 import { UserProps, User } from './models/User';
 
+
 // Create a collection of users, specifying:
 // 1) rootUrl for where the data is located
 // 2) the callback that will deserialize the data (when fetched)
