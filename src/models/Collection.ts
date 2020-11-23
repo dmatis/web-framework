@@ -16,8 +16,7 @@ export class Collection<T, K> {
     axios.get(this.rootUrl)
       .then((response: AxiosResponse) => {
         this.models = response.data.map((value: K) => this.deserialize(value));
+        this.trigger('change');
       })
-
-      this.trigger('change');
   }
 }
