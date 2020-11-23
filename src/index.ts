@@ -1,24 +1,14 @@
-import { UserList } from './views/UserList';
-import { Collection } from './models/Collection';
-import { UserProps, User } from './models/User';
+import { UserEdit } from './views/UserEdit';
+import { User } from './models/User';
 
+const user = User.buildUser({ name: 'Your User Name', age: 30 });
 
-// Create a collection of users, specifying:
-// 1) rootUrl for where the data is located
-// 2) the callback that will deserialize the data (when fetched)
-const users = new Collection('http://localhost:3000/users', (json: UserProps) => {
-  return User.buildUser(json);
-});
+const root = document.querySelector('#root');
 
-// Register an event handler on 'change' events (which get triggered when users are fetched)
-// which in turn will render the users to the DOM
-users.on('change', () => {
-  const root = document.querySelector('#root');
+if (root) {
+  const userEdit = new UserEdit(root, user);
 
-  if (root) {
-    new UserList(root, users).render();
-  }
-});
-
-// Fetch the users (in order to trigger rendering them to the page)
-users.fetch();
+  userEdit.render();
+} else {
+  throw new Error('Root element not found');
+}
