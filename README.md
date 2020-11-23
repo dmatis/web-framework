@@ -11,7 +11,7 @@ If event handlers are registered (such as 'change'), it can can auto render the 
 
 ## To Start
 `npm install`  
-`npm install -g json-server`  
+`npm install -g json-server parcel-bundler`  
 `npm run start`  
 
 In your browser, navigate to [http://localhost:1234](http://localhost:1234)
